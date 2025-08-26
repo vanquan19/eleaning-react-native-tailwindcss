@@ -30,7 +30,7 @@ const Input: React.FC<CustomTextInputProps> = ({
   ...rest
 }) => {
   return (
-    <View className="mb-2">
+    <View className="mb-1">
       {label && (
         <Text
           className={cn(
@@ -63,7 +63,7 @@ const Input: React.FC<CustomTextInputProps> = ({
           />
         )}
       />
-      <Text className="h-7 leading-7 text-sm text-red-500">{error}</Text>
+      <Text className="h-6 leading-6 text-sm text-red-500">{error}</Text>
     </View>
   );
 };

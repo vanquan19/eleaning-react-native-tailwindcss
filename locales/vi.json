@@ -47,19 +47,11 @@
   "login": {
     "welcome-back": "Chào mừng trở lại!",
     "login-to-continue": "Đăng nhập để tiếp tục học tập",
-    "form": {
-      "email": "Email",
-      "password": "Mật khẩu",
-      "forgot-password": "Quên mật khẩu?",
-      "email-placeholder": "Nhập email của bạn",
-      "password-placeholder": "Nhập mật khẩu của bạn"
-    },
+    "login-with-google": "Đăng nhập với Google",
+    "forgot-password": "Quên mật khẩu?",
     "footer": {
       "register-prompt": "Chưa có tài khoản? ",
       "register-link": "Đăng ký ngay"
-    },
-    "buttons": {
-      "login-with-google": "Đăng nhập với Google"
     }
   },
   "register": {
