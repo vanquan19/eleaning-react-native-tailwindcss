@@ -15,6 +15,7 @@ module.exports = {
         background: {
           DEFAULT: "#FFFFFF",
           dark: "#0F172A",
+          secondary: "#DDD6FE",
         },
         foreground: {
           DEFAULT: "#0F172A",
