@@ -6,6 +6,8 @@
     "login": "Đăng nhập",
     "register": "Đăng ký",
     "logout": "Đăng xuất",
+    "send-code": "Gửi mã xác nhận",
+    "verify-code": "Xác nhận",
     "submit": "Gửi",
     "cancel": "Hủy"
   },
@@ -61,5 +63,12 @@
   "register": {
     "title": "Tạo tài khoản mới",
     "subtitle": "Tham gia cộng đồng học tập"
+  },
+  "forgot-password": {
+    "title": "Quên mật khẩu",
+    "subtitle": "Nhập email của bạn để nhận mã xác nhận",
+    "otp": {
+      "title": "Xác nhận mã OTP"
+    }
   }
 }
