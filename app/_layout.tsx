@@ -68,6 +68,10 @@ export default function RootLayout() {
           name={ROUTES.FORGOT_PASSWORD.name}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name={ROUTES.OTP_VERIFICATION.name}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

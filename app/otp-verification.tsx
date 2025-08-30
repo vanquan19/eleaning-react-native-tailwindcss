@@ -1,15 +1,15 @@
 import ScreenLayout from "~/components/common/screen-layout";
 import * as React from "react";
 import { View } from "react-native";
-import { HeaderForgotPassword } from "~/components/screen/home/header";
-import { FormForgotPassword } from "~/components/screen/forgot-password/form-forgot-password";
 import { FooterForgotPassword } from "~/components/screen/forgot-password/footer";
-export default function ForgotPassword() {
+import { FormOTP } from "~/components/screen/forgot-password/form-otp";
+import { HeaderOTPVerification } from "~/components/screen/forgot-password/otp-veryfy-header";
+export default function VerifyCode() {
   return (
     <ScreenLayout>
       <View>
-        <HeaderForgotPassword />
-        <FormForgotPassword />
+        <HeaderOTPVerification />
+        <FormOTP />
         <FooterForgotPassword />
       </View>
     </ScreenLayout>
