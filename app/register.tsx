@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ScreenLayout from "~/components/common/screen-layout";
 import { HeaderRegister } from "~/components/screen/register/header";
 import { FormRegister } from "~/components/screen/register/form-register";

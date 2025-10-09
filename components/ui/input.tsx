@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {
   TextInput as RNTextInput,
   TextInputProps,
@@ -17,6 +17,7 @@ interface CustomTextInputProps extends TextInputProps {
   label?: string;
   labelClassName?: string;
   className?: string;
+  type?: "text" | "email" | "password";
 }
 
 const Input: React.FC<CustomTextInputProps> = ({
@@ -27,6 +28,7 @@ const Input: React.FC<CustomTextInputProps> = ({
   placeholder,
   error,
   className,
+  type = "text",
   ...rest
 }) => {
   return (
@@ -59,6 +61,7 @@ const Input: React.FC<CustomTextInputProps> = ({
             value={value}
             onChangeText={onChange}
             onBlur={onBlur}
+            secureTextEntry={type === "password"}
             {...rest}
           />
         )}

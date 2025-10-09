@@ -13,7 +13,7 @@ export default function Screen() {
       <View>
         <HeaderLogin />
         <FormLogin />
-        <OptionLogin />
+        {/* <OptionLogin /> */}
         <FooterLogin />
       </View>
     </ScreenLayout>

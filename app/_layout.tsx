@@ -72,6 +72,42 @@ export default function RootLayout() {
           name={ROUTES.OTP_VERIFICATION.name}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name={ROUTES.SEARCH.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.NOTIFICATION.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.CART.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.COURSE_DETAIL.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.PURCHASE_SUCCESS.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.LESSON.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.QUIZZ.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.QUIZZ_DETAIL.name}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={ROUTES.CHATBOT.name}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
@@ -86,7 +122,6 @@ const useIsomorphicLayoutEffect =
 
 function useSetWebBackgroundClassName() {
   useIsomorphicLayoutEffect(() => {
-    // Adds the background color to the html element to prevent white background on overscroll.
     document.documentElement.classList.add("bg-background");
   }, []);
 }

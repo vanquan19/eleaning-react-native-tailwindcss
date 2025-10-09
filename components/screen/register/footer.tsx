@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Text } from "react-native";
 import { useRouter } from "expo-router";
 import { ROUTES } from "~/constants/router";
