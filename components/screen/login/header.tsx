@@ -1,15 +1,16 @@
 import { useRouter } from "expo-router";
 import { ChevronLeft } from "lucide-react-native";
-import React from "react";
+import * as React from "react";
 import { View, Image } from "react-native";
 import { TypographyH3 } from "~/components/ui/typography-h2";
+import { ROUTES } from "~/constants/router";
 import i18n from "~/lib/i18n";
 
 export function HeaderLogin() {
   const router = useRouter();
   return (
     <View className="mb-8">
-      <ChevronLeft onPress={() => router.back()} />
+      <ChevronLeft onPress={() => router.replace(ROUTES.HOME.path)} />
       <View className="">
         <Image
           source={require("~/assets/images/group-icon.png")}

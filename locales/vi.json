@@ -4,13 +4,18 @@
   "and": "và",
   "buttons": {
     "login": "Đăng nhập",
+    "register": "Đăng ký",
     "logout": "Đăng xuất",
+    "send-code": "Gửi mã xác nhận",
+    "verify-code": "Xác nhận",
     "submit": "Gửi",
     "cancel": "Hủy"
   },
   "input": {
+    "fullname": "Họ và tên",
     "username": "Tên người dùng",
     "password": "Mật khẩu",
+    "confirm-password": "Xác nhận mật khẩu",
     "email": "Email",
     "search": "Tìm kiếm",
     "search-placeholder": "Tìm kiếm..."
@@ -22,7 +27,7 @@
     "whishlist": "Whishlist",
     "profile": "Tài khoản"
   },
-  "messages": {
+  "status": {
     "loading": "Đang tải...",
     "error": "Có lỗi xảy ra",
     "success": "Thành công!"
@@ -34,11 +39,12 @@
     "see-all": "Xem tất cả",
     "see-more": "Xem thêm"
   },
-  "error": {
+  "messages": {
     "WEB_E_MSG_001": "Trường này không được để trống.",
-    "WEB_E_MSG_002": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ cái và số, và chỉ chứa ký tự hợp lệ.",
-    "WEB_E_MSG_003": "{{field}} không được vượt quá {{field2}} ký tự.",
+    "WEB_E_MSG_002": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ cái và số.",
+    "WEB_E_MSG_003": "{{field}} không được vượt quá {{max-length}} ký tự.",
     "WEB_E_MSG_004": "Bạn phải đồng ý với các điều khoản và điều kiện.",
+    "WEB_E_MSG_005": "{{field}} phải có ít nhất {{min_length}} ký tự.",
     "WEB_E_MSG_008": "Định dạng email không hợp lệ.",
     "WEB_E_MSG_009": "Mật khẩu không khớp.",
     "file_001": "{{field}} phải là một tệp hợp lệ.",
@@ -56,24 +62,13 @@
   },
   "register": {
     "title": "Tạo tài khoản mới",
-    "subtitle": "Tham gia cộng đồng học tập",
-    "form": {
-      "fullname": "Tên đầy đủ",
-      "email": "Email",
-      "password": "Mật khẩu",
-      "confirm-password": "Xác nhận mật khẩu",
-      "fullname-placeholder": "Nhập tên đầy đủ của bạn",
-      "email-placeholder": "Nhập email của bạn",
-      "password-placeholder": "Nhập mật khẩu của bạn",
-      "confirm-password-placeholder": "Xác nhận mật khẩu của bạn"
-    },
-    "footer": {
-      "agree-to-terms": "Tôi đồng ý với",
-      "policy": "Điều khoản bảo mật",
-      "clause": "Chinh sách bảo mật",
-      "login-prompt": "Đã có tài khoản? ",
-      "login-link": "Đăng nhập ngay",
-      "have-account": "Đã có tài khoản? "
+    "subtitle": "Tham gia cộng đồng học tập"
+  },
+  "forgot-password": {
+    "title": "Quên mật khẩu",
+    "subtitle": "Nhập email của bạn để nhận mã xác nhận",
+    "otp": {
+      "title": "Xác nhận mã OTP"
     }
   }
 }

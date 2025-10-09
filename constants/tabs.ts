@@ -1,4 +1,4 @@
-import { Book, Heart, Star, UserCircle2 } from "lucide-react-native";
+import { Book, Star, UserCircle2 } from "lucide-react-native";
 import i18n from "~/lib/i18n";
 
 export const TABS = {
@@ -12,11 +12,6 @@ export const TABS = {
       name: "learning",
       title: i18n.t("navigation.learning"),
       icon: Book,
-    },
-    {
-      name: "whishlist",
-      title: i18n.t("navigation.whishlist"),
-      icon: Heart,
     },
     {
       name: "profile",

@@ -68,14 +68,20 @@ export function TypographyH4({
 
 export function TypographyH5({
   children,
+  numberOfLines,
+  ellipsizeMode,
   className,
 }: {
   readonly children: ReactNode;
   className?: string;
+  numberOfLines?: number;
+  ellipsizeMode?: "head" | "middle" | "tail" | "clip";
 }) {
   return (
     <Text
       className={`scroll-m-20 text-lg font-semibold tracking-tight ${className}`}
+      numberOfLines={numberOfLines}
+      ellipsizeMode={ellipsizeMode}
     >
       {children}
     </Text>
@@ -85,11 +91,23 @@ export function TypographyH5({
 export function TypographyP({
   children,
   className,
+  ellipsizeMode,
+  numberOfLines,
 }: {
   readonly children: ReactNode;
   className?: string;
+  ellipsizeMode?: "head" | "middle" | "tail" | "clip";
+  numberOfLines?: number;
 }) {
-  return <Text className={`leading-7 text-base ${className}`}>{children}</Text>;
+  return (
+    <Text
+      className={`leading-7 text-base ${className}`}
+      ellipsizeMode={ellipsizeMode}
+      numberOfLines={numberOfLines}
+    >
+      {children}
+    </Text>
+  );
 }
 export function TypographyB({
   children,

@@ -28,8 +28,12 @@ export const ROUTES = {
     path: "/category",
   },
   COURSE_DETAIL: {
-    name: "course-detail/[id]",
-    path: "/course-detail/[id]",
+    name: "course-detail",
+    path: "/course-detail",
+  },
+  CART: {
+    name: "cart",
+    path: "/cart",
   },
   PROFILE: {
     name: "profile",
@@ -39,8 +43,44 @@ export const ROUTES = {
     name: "settings",
     path: "/settings",
   },
+  NOTIFICATION: {
+    name: "notification",
+    path: "/notification",
+  },
+  SEARCH: {
+    name: "search",
+    path: "/search",
+  },
+  MY_COURSES: {
+    name: "learning",
+    path: "/learning",
+  },
+  WHISHLIST: {
+    name: "whishlist",
+    path: "/whishlist",
+  },
   NOT_FOUND: {
-    name: "not-found",
-    path: "/not-found",
+    name: "+not-found",
+    path: "/+not-found",
+  },
+  PURCHASE_SUCCESS: {
+    name: "purchase-success",
+    path: "/purchase-success",
+  },
+  LESSON: {
+    name: "lesson",
+    path: "/lesson",
+  },
+  QUIZZ: {
+    name: "quizz",
+    path: "/quizz",
+  },
+  QUIZZ_DETAIL: {
+    name: "quizz-detail",
+    path: "/quizz-detail",
+  },
+  CHATBOT: {
+    name: "chatbot",
+    path: "/chatbot",
   },
 } as const;
