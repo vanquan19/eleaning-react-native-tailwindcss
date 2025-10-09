@@ -88,3 +88,29 @@
 ├── expo-env.d.ts            # Định nghĩa type cho biến môi trường
 ├── global.css               # Cấu hình style toàn cục
 └── index.js / App.tsx       # Điểm khởi đầu của ứng dụng
+
+## ⚙️ Cài đặt & Cấu hình
+
+### 1️⃣ Cài đặt môi trường
+
+Node.js >= 18
+
+Expo CLI:
+
+npm install -g expo-cli
+
+### 2️⃣ Cài đặt dependencies
+npm install
+# hoặc
+yarn install
+
+### 3️⃣ Tạo file .env
+API_URL=https://your-api-url.com
+
+### 4️⃣ Chạy ứng dụng
+npm start
+# hoặc
+expo start
+
+### 👨‍💻 Nhóm phát triển
+Quân - FE develop
