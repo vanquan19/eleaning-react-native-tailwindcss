@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import { ChevronLeft } from "lucide-react-native";
-import React from "react";
+import * as React from "react";
 import { View, Image } from "react-native";
 import { TypographyH3, TypographyH4 } from "~/components/ui/typography-h2";
 import i18n from "~/lib/i18n";

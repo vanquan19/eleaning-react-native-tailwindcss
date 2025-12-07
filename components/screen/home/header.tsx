@@ -1,32 +1,67 @@
+import * as React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-import { ChevronLeft } from "lucide-react-native";
-import React from "react";
-import { View, Image } from "react-native";
-import { TypographyH3, TypographyH4 } from "~/components/ui/typography-h2";
-import i18n from "~/lib/i18n";
+import { BellRing, ShoppingCart } from "lucide-react-native";
 
-export function HeaderForgotPassword() {
+import { ROUTES } from "~/constants/router";
+import { Button } from "~/components/ui/button";
+import { TypographyH3 } from "~/components/ui/typography-h2";
+import authStore from "~/stores/auth.store";
+import i18n from "~/lib/i18n";
+import { useMyCart } from "~/hooks/queries/useCart";
+import { useFocusEffect } from "@react-navigation/native";
+
+export function HeaderHome() {
   const router = useRouter();
-  return (
-    <View className="mb-8">
-      <ChevronLeft onPress={() => router.back()} />
-      <View className="">
-        <Image
-          source={require("~/assets/images/group-icon.png")}
-          style={{
-            width: "100%",
-            height: 180,
-          }}
-          resizeMode="contain"
-        />
+  const user = authStore.use.auth();
+  const { data: dataMyCart, refetch: refetchMyCart } = useMyCart({
+    config: { enabled: true },
+  });
+
+  useFocusEffect(
+    React.useCallback(() => {
+      refetchMyCart();
+    }, [])
+  );
+
+  if (!user) {
+    return (
+      <View className="flex flex-row justify-between items-center mb-4 pt-2 pr-3">
+        <TypographyH3 className="text-primary">E-Learning</TypographyH3>
+        <Button size="sm" onPress={() => router.push(ROUTES.LOGIN.path)}>
+          {i18n.t("buttons.login")}
+        </Button>
       </View>
-      <View>
-        <TypographyH3 className="text-primary text-center">
-          {i18n.t("forgot-password.title")}
-        </TypographyH3>
-        <TypographyH4 className="text-primary text-center">
-          {i18n.t("forgot-password.subtitle")}
-        </TypographyH4>
+    );
+  }
+
+  return (
+    <View className="mb-4 pt-2 pr-3">
+      <View className="flex flex-row justify-between items-center">
+        <TypographyH3 className="text-primary">E-Learning</TypographyH3>
+
+        <View className="flex flex-row items-center space-x-4">
+          <TouchableOpacity
+            className="relative mr-3"
+            onPress={() => router.push(ROUTES.CART.path)}
+          >
+            <ShoppingCart size={20} className="stroke-primary" />
+            <View className="absolute -top-1 -right-1 bg-red-500 rounded-full h-4 w-4 flex items-center justify-center">
+              <Text className="text-xs text-white">
+                {dataMyCart?.data?.items.length || 0}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            className="relative"
+            onPress={() => router.push(ROUTES.NOTIFICATION.path)}
+          >
+            <BellRing size={20} className="stroke-primary" />
+            <View className="absolute -top-1 -right-1 bg-red-500 rounded-full h-4 w-4 flex items-center justify-center">
+              <Text className="text-xs text-white">0</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

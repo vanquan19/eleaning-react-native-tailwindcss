@@ -43,7 +43,7 @@ const buttonTextVariants = cva(
         outline: "group-active:text-accent-foreground",
         secondary:
           "text-secondary-foreground group-active:text-secondary-foreground",
-        ghost: "group-active:text-accent-foreground",
+        ghost: "text-primary",
         link: "text-primary group-active:underline",
       },
       size: {
@@ -81,7 +81,7 @@ function Button({
     >
       <Pressable
         className={cn(
-          props.disabled && "opacity-50 web:pointer-events-none",
+          props.disabled && "opacity-90 web:pointer-events-none",
           buttonVariants({ variant, size, className })
         )}
         ref={ref}

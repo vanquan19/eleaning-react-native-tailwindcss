@@ -1,12 +1,18 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { View, TextInput as RNTextInput, Text } from "react-native";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import * as React from "react";
+import { useForm } from "react-hook-form";
+import { View, TextInput as RNTextInput, ToastAndroid } from "react-native";
 import { Button } from "~/components/ui/button";
-import { SimpleOTPInput } from "~/components/ui/input-otp";
+import { Input } from "~/components/ui/input";
+import { ROUTES } from "~/constants/router";
+import { useResetPassword } from "~/hooks/queries/useVerifyAccount";
+import i18n from "~/lib/i18n";
 import { OtpSchema, VerifyCodeDTO } from "~/schema/auth.schema";
 
 export function FormOTP() {
+  const router = useRouter();
+  const { id } = useLocalSearchParams<{ id: string }>();
   const {
     control,
     handleSubmit,
@@ -15,37 +21,59 @@ export function FormOTP() {
     resolver: zodResolver(OtpSchema),
     defaultValues: {
       otp: "",
+      email: id,
     },
     mode: "onSubmit",
   });
 
+  const { mutate } = useResetPassword({
+    config: {
+      onSuccess: () => {
+        ToastAndroid.show(
+          "Đặt lại mật khẩu thành công! Vui lòng đăng nhập.",
+          ToastAndroid.LONG
+        );
+        router.replace(ROUTES.LOGIN.path);
+      },
+      onError: (error) => {
+        ToastAndroid.show(
+          error?.response?.data?.message || "Đã xảy ra lỗi.",
+          ToastAndroid.LONG
+        );
+      },
+    },
+  });
+
   const onSubmit = (data: VerifyCodeDTO) => {
-    const otp = Object.values(data).join("");
-    console.log("Submitted OTP:", data, otp);
+    mutate({
+      email: data.email,
+      newPassword: data.newPassword,
+      confirmPassword: data.confirmPassword,
+      code: data.otp,
+    });
   };
-  console.log("Error state for OTP input:", errors.otp?.message);
 
   return (
     <View className="p-4">
-      <Controller
+      <Input
         control={control}
-        name="otp"
-        rules={{
-          required: "OTP is required",
-          pattern: {
-            value: /^\d{6}$/,
-            message: "OTP must be a 6-digit number",
-          },
-        }}
-        render={({ field: { onChange, value } }) => (
-          <SimpleOTPInput
-            value={value}
-            onChange={onChange}
-            error={errors.otp?.message}
-          />
-        )}
+        placeholder={i18n.t("input.password")}
+        name="newPassword"
+        error={errors.newPassword?.message}
       />
-      <Button onPress={handleSubmit(onSubmit)}>Submit</Button>
+      <Input
+        control={control}
+        placeholder={i18n.t("input.confirm-password")}
+        name="confirmPassword"
+        error={errors.confirmPassword?.message}
+      />
+      <Input
+        control={control}
+        placeholder="Nhập mã OTP"
+        name="otp"
+        error={errors.otp?.message}
+      />
+      <Button onPress={handleSubmit(onSubmit)}>Xác nhận</Button>
     </View>
   );
 }
