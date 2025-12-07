@@ -164,14 +164,12 @@ export default function Chatbot() {
                 placeholder="Gõ tin nhắn..."
                 className="rounded-lg border border-muted px-3 py-3 text-base"
                 onKeyPress={(e: any) => {
-                  if (Platform.OS === "web") {
-                    if (
-                      e?.nativeEvent?.key === "Enter" &&
-                      !e?.nativeEvent?.shiftKey
-                    ) {
-                      e.preventDefault?.();
-                      handleSend();
-                    }
+                  const isWeb = Platform.OS === "web";
+                  const isEnter = e?.nativeEvent?.key === "Enter";
+                  const isNotShift = !e?.nativeEvent?.shiftKey;
+                  if (isWeb && isEnter && isNotShift) {
+                    e.preventDefault?.();
+                    handleSend();
                   }
                 }}
               />

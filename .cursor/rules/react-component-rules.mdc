@@ -1,0 +1,66 @@
+# React Component Rules
+
+## Component Naming
+- Component names must start with a capital letter
+- File names for React components must match the main component name
+- Use PascalCase for component names (e.g., `UserProfile`, `CourseCard`)
+
+## Component Structure
+- Each component should have only one default export
+- All components must have PropTypes or TypeScript interfaces
+- Use TypeScript interfaces for type definitions instead of PropTypes when possible
+
+## Performance Rules
+- Do not declare inline functions in JSX - use useCallback hook instead
+- Example of what NOT to do:
+  ```jsx
+  <Button onPress={() => handleClick()} />
+  ```
+- Example of what TO do:
+  ```jsx
+  const handleClick = useCallback(() => {
+    // handle click logic
+  }, [dependencies]);
+  
+  <Button onPress={handleClick} />
+  ```
+
+## Code Quality
+- No console.log statements in production code
+- Use proper logging mechanisms or remove debug statements before committing
+
+## File Organization
+- React component files should be named exactly as the main component
+- Example: Component `UserProfile` should be in file `UserProfile.tsx`
+- Place components in appropriate directories based on their purpose
+
+## TypeScript Guidelines
+- Always define interfaces for component props
+- Use proper typing for all function parameters and return values
+- Example:
+  ```tsx
+  interface UserProfileProps {
+    userId: string;
+    name: string;
+    email: string;
+  }
+  
+  const UserProfile: React.FC<UserProfileProps> = ({ userId, name, email }) => {
+    // component implementation
+  };
+  ```
+
+## Import/Export Rules
+- Use named imports when importing multiple items from the same module
+- Use default export only for the main component
+- Example:
+  ```tsx
+  import React, { useCallback, useState } from 'react';
+  import { Button, Text } from 'react-native';
+  
+  const MyComponent: React.FC<Props> = (props) => {
+    // component implementation
+  };
+  
+  export default MyComponent;
+  ```

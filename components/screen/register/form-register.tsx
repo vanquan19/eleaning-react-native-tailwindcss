@@ -40,7 +40,6 @@ export function FormRegister() {
     handleSubmit,
     formState: { errors },
   } = useForm<VerifyCodeDTO>({
-    resolver: zodResolver(OtpSchema),
     defaultValues: {
       otp: "",
     },
