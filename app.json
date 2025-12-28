@@ -12,7 +12,9 @@
       "image": "./assets/images/logo-icon.png",
       "resizeMode": "contain"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -45,6 +47,7 @@
       "eas": {
         "projectId": "fb373fe5-be9a-4fff-a174-7ac6209339fc"
       }
-    }
+    },
+    "owner": "vnq203"
   }
 }
